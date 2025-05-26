@@ -1,0 +1,1 @@
+oxygen_value = 10; // Amount of oxygen this gives

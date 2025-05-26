@@ -1,0 +1,1 @@
+instance_destroy(); // Remove chest after 2 seconds
