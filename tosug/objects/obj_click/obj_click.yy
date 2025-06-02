@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"Object2",
-  "eventList":[],
+  "%Name":"obj_click",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"Object2",
+  "name":"obj_click",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -27,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_click",
+    "path":"sprites/spr_click/spr_click.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

@@ -6,6 +6,11 @@ if (oxygen <= 0) {
     // Start a timer when oxygen runs out
     oxygen_damage_timer += 1;
     
+    // Play drowning sound if not already playing
+    if (!audio_is_playing(snd_drowning)) {
+        audio_play_sound(snd_drowning, 0, true); // true for looping
+    }
+    
     // Only take damage every 60 steps (1 second if room speed is 60)
     if (oxygen_damage_timer >= 60) {
         hp -= 5; // Smaller damage amount (changed from 10)
@@ -13,6 +18,10 @@ if (oxygen <= 0) {
         hit_flash = 1; // Flash effect
     }
 } else {
+    // Stop drowning sound when oxygen is available
+    if (audio_is_playing(snd_drowning)) {
+        audio_stop_sound(snd_drowning);
+    }
     oxygen_damage_timer = 0; // Reset timer when oxygen is available
 }
 
@@ -40,13 +49,17 @@ if (hit_flash > 0) hit_flash -= 0.1;
 if (hp <= 0) {
     game_restart();
 }
-
 // Movement and animation control
 var move_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 var move_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 
-// Set facing direction and animation
+// Play swim sound when moving (new code)
 if (move_x != 0 || move_y != 0) {
+    if (!audio_is_playing(snd_swim)) {  // Only play if not already playing
+        audio_play_sound(snd_swim, 0, false);
+    }
+    
+    // Set facing direction and animation
     if (move_x > 0) {
         sprite_index = spr_diver_right;
         facing = "right";
@@ -55,6 +68,11 @@ if (move_x != 0 || move_y != 0) {
         facing = "left";
     }  
 } else {
+    // Stop swim sound when not moving (new code)
+    if (audio_is_playing(snd_swim)) {
+        audio_stop_sound(snd_swim);
+    }
+    
     if (facing == "right") sprite_index = spr_diver_right;
     else if (facing == "left") sprite_index = spr_diver_left;
 }

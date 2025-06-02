@@ -18,3 +18,7 @@ chest_nearby = noone;
 current_hp_display = hp; // For smooth HP bar animation
 hp_bar_color = c_green;  // Starting color
 hit_flash = 0;           // For damage flash effect
+// Attachment system
+attachments = []; // Array to store collected attachments
+max_attachments = 4; // Max attachments that can be displayed
+move_speed_base = 3; // Base movement speed
