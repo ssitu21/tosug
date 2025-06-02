@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"Object8",
+  "%Name":"obj_boots",
   "eventList":[],
   "managed":true,
-  "name":"Object8",
+  "name":"obj_boots",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_boots",
+    "path":"sprites/spr_boots/spr_boots.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
