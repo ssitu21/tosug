@@ -48,11 +48,15 @@ if (oxygen <= 0) {
 // Smooth HP bar
 current_hp_display = lerp(current_hp_display, hp, 0.2);
 
-// HP color - CORRECTED VERSION
+// Update HP color based on percentageAdd commentMore actions
 var hp_percent = hp/max_hp;
-hp_bar_color = (hp_percent > 0.6) ? c_green : 
-               (hp_percent > 0.3) ? c_yellow : c_red;
-
+if (hp_percent > 0.6) {
+    hp_bar_color = c_green;
+} else if (hp_percent > 0.3) {
+    hp_bar_color = c_yellow;
+} else {
+    hp_bar_color = c_red;
+}
 // Flash effect
 if (hit_flash > 0) hit_flash -= 0.1;
 

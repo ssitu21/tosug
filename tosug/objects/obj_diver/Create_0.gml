@@ -3,13 +3,17 @@ hp = 100;
 max_hp = 100;
 oxygen = 100;
 max_oxygen = 100;
-oxygen_depletion_rate = 0.5; // Base depletion rate
+oxygen_depletion_rate = 0.5;
 
-// Movement system
+// Movement
 move_speed_base = 3;
 move_speed_boost = 0;
-move_speed = move_speed_base;
-facing = "right"; 
+facing = "right";
+
+// Power-ups
+attachments = [];
+max_attachments = 4;
+powerup_duration = 60 * 60; // 60 seconds
 
 // Visual effects
 current_hp_display = hp;
@@ -32,3 +36,5 @@ oxygen_efficiency_timer = 0;
 
 // Interaction
 chest_nearby = noone;
+// Power-up timers
+move_speed_boost_timer = 0;
