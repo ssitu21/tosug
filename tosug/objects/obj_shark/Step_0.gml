@@ -30,3 +30,16 @@ if (player != noone) {
 
 // Handle cooldown
 if (attack_cooldown > 0) attack_cooldown--;
+// Update HP bar visibility
+if (hp_bar_timer > 0) {
+    hp_bar_timer--;
+    show_hp_bar = true;
+} else {
+    show_hp_bar = false;
+}
+
+// Die when HP reaches 0
+if (hp <= 0) {
+    audio_play_sound(snd_shark_death, 0, false);
+    instance_destroy();
+}

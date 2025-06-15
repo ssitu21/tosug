@@ -1,5 +1,5 @@
 // Handle oxygen depletion (with mask power-up effect)
-oxygen -= oxygen_depletion_rate * 0.2 * global.oxygen_depletion_modifier;
+oxygen -= oxygen_depletion_rate * 0.15 * global.oxygen_depletion_modifier;
 oxygen = clamp(oxygen, 0, max_oxygen);
 
 // Oxygen damage system
@@ -106,4 +106,28 @@ if (keyboard_check_pressed(ord("F")) && chest_nearby != noone) {
     with (chest_nearby) {
         event_user(0);
     }
+}
+// Handle throw cooldown
+if (throw_cooldown > 0) {
+    throw_cooldown--;
+} else {
+    can_throw = true;
+}
+
+// Throw trident on mouse click
+if (mouse_check_button_pressed(mb_left) && can_throw) {
+    // Create new trident instance (will fly infinitely)
+    var _trident = instance_create_layer(x, y, "Player", obj_trident_thrown);
+    with (_trident) {
+        direction = point_direction(other.x, other.y, mouse_x, mouse_y);
+        speed = 15; // Adjust speed as needed
+        owner = other.id;
+    }
+    
+    // Play throw sound
+    audio_play_sound(snd_throw, 0, false);
+    
+    // Start cooldown
+    can_throw = false;
+    throw_cooldown = throw_delay;
 }
