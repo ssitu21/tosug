@@ -36,7 +36,24 @@ if (hp_bar_timer > 0) {
 
 if (hit_flash > 0) hit_flash -= 0.1;
 
-if (hp <= 0) {
+// Death handling
+if (hp <= 0 && !is_dying) {
+    is_dying = true;
+    death_timer = death_fade_time;
     audio_play_sound(snd_shark_death, 0, false);
-    instance_destroy();
+    
+    // Disable collisions and movement
+    speed = 0;
+    image_speed = 0; // Freeze animation
+}
+
+// Handle death fade
+if (is_dying) {
+    death_timer--;
+    image_alpha = death_timer/death_fade_time; // Gradually fade out
+
+    // Destroy when fade complete
+    if (death_timer <= 0) {
+        instance_destroy();
+    }
 }

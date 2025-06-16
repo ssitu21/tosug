@@ -1,3 +1,6 @@
+if (is_dying) {
+    draw_set_alpha(image_alpha); // Apply fade to everything
+}
 draw_self();
 if (hp > 0) {
     var bar_width = 40;
@@ -12,4 +15,8 @@ if (hp > 0) {
 
     draw_set_color(c_green);
     draw_rectangle(x1, y1, x1 + bar_width * hp_ratio, y1 + bar_height, false);
+}
+// Reset alpha if we changed it
+if (is_dying) {
+    draw_set_alpha(1);
 }

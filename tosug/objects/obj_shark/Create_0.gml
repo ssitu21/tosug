@@ -24,3 +24,7 @@ hit_flash = 0;
 visible = true;
 image_alpha = 1;
 depth = -y - 100; // Ensures HP bar draws above shark
+// Add these new variables
+is_dying = false;
+death_timer = 0;
+death_fade_time = 60; // 1 second fade at 60FPS

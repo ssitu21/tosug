@@ -4,7 +4,7 @@ max_hp = 100;
 oxygen = 100;
 max_oxygen = 100;
 oxygen_depletion_rate = 0.5;
-move_speed = 5;
+move_speed = 4;
 facing = "right";
 oxygen_damage_timer = 0;
 
@@ -41,3 +41,7 @@ trident = noone;
 can_throw = true;
 throw_cooldown = 0;
 throw_delay = room_speed; // 1 second cooldown (at 60 FPS)
+// Start music when player spawns
+if (!audio_is_playing(snd_background)) {
+    audio_play_sound(snd_background, 50, true); // 50=medium volume
+}
