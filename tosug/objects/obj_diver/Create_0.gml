@@ -4,7 +4,7 @@ max_hp = 100;
 oxygen = 100;
 max_oxygen = 100;
 oxygen_depletion_rate = 0.5;
-move_speed = 4;
+move_speed = 4.25;
 facing = "right";
 oxygen_damage_timer = 0;
 

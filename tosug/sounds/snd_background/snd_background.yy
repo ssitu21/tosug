@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":196.4176,
+  "duration":164.40454,
   "name":"snd_background",
   "parent":{
     "name":"Sounds",
